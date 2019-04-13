@@ -122,12 +122,12 @@ button .icon {
 }
 
 @keyframes showChart {
-    from {
+    /* from {
         opacity: 0;
         transform: scale(3, 1);
     }
     to {
         opacity: 1;
         transform: scale(1, 1);
-    }
+    } */
 }
