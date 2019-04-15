@@ -1,5 +1,50 @@
 body {
     font: 15px sans-serif;
+    text-align: center;
+    color: #a2acb4;
+}
+
+body.day {
+    animation: toDay .3s 1 alternate ease-in-out forwards;
+}
+
+.tooltip.day {
+    color: #242f3e;
+    background-color: white
+}
+
+body.night {
+    animation: toNight .3s 1 alternate ease-in-out forwards;
+}
+
+.tooltip.night {
+    color: white;
+    background-color: #242f3e
+}
+
+#switchMode {
+    color: #46a4e7;
+    cursor: pointer;
+    padding: 10px;
+    margin: 30px;
+}
+
+@keyframes toDay {
+    from {
+        background-color: #242f3e
+    }
+    to {
+        background-color: white
+    }
+}
+
+@keyframes toNight {
+    from {
+        background-color: white
+    }
+    to {
+        background-color: #242f3e
+    }
 }
 
 button {
@@ -12,14 +57,15 @@ button {
     border-radius: 15px;
     outline: none;
     background-color: white;
+    cursor: pointer;
 }
 
 button .icon {
     height: 20px;
-    border-radius: 15px;
+    background-image: url('icon/check.svg');
     position: absolute;
     top: 3px;
-    left: 5px;
+    left: 10px;
     width: 20px;
 }
 
@@ -45,6 +91,31 @@ button .icon {
 .tooltip span {
     float: right;
     animation: fadeIn .3s 1 alternate ease-in-out;
+}
+
+.zoomOut {
+    font-size: 18px;
+    padding-left: 25px;
+    color: #46a4e7;
+    cursor: pointer;
+}
+
+.zoomOut:after {
+    content: "";
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 20px;
+    width: 20px;
+    background-image: url('icon/zoomOut.svg');
+}
+
+.title {
+    font-weight: bold;
+}
+
+.date {
+    font-weight: bold;
 }
 
 @keyframes fadeInCap {
@@ -104,16 +175,18 @@ button .icon {
 }
 
 .hidden {
-    animation: hideChart .5s 1 alternate ease-in-out forwards;
+    animation: hideChart 0.6s 1 alternate ease-in-out forwards;
 }
 
 @keyframes hideChart {
     from {
+        display: block;
         opacity: 1;
         transform: scale(1, 1)/* translateX(0) */
         ;
     }
     to {
+        display: none;
         opacity: 0;
         transform: scale(3, 1)/* translateX(-200%) */
         ;
@@ -121,16 +194,22 @@ button .icon {
 }
 
 .shown {
-    animation: showChart .5s 1 alternate ease-in-out forwards;
+    animation: showChart 0.6s 1 alternate ease-in-out forwards;
 }
 
 @keyframes showChart {
-    /* from {
+    0% {
+        opacity: 0;
+        transform: scale(1, 1);
+    }
+    1% {
+        display: none;
         opacity: 0;
         transform: scale(3, 1);
     }
     to {
+        display: block;
         opacity: 1;
         transform: scale(1, 1);
-    } */
+    }
 }
